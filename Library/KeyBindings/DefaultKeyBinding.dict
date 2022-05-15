@@ -1,0 +1,11 @@
+{
+    /* Remap Home / End keys */
+    "\UF729" = "moveToBeginningOfLine:"; // home
+    "\UF72B" = "moveToEndOfLine:"; // end 
+    "$\UF729" = "moveToBeginningOfLineAndModifySelection:"; // shift + home
+    "$\UF72B" = "moveToEndOfLineAndModifySelection:"; // shift + end
+    "^\UF729" = "moveToBeginningOfDocument:"; // ctrl + home
+    "^\UF72B" = "moveToEndOfDocument:"; // ctrl + end
+    "$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:"; // shift + ctrl + home
+    "$^\UF72B" = "moveToEndOfDocumentAndModifySelection:"; // shift + ctrl + end
+}
