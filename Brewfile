@@ -1,35 +1,43 @@
-tap "buo/cask-upgrade"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-drivers"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
-tap "romkatv/powerlevel10k"
-brew "awscli"
-brew "gawk"
-brew "gnupg"
-brew "gpg"
-brew "mplayer"
-brew "mkcert"
-brew "nvm"
-brew "pnpm"
-brew "pyenv"
-brew "romkatv/powerlevel10k/powerlevel10k"
-# cask "firefox"
-# cask "android-studio"
-# cask "cocoapods"
-cask "dbeaver-community"
-cask "discord"
-cask "docker"
-cask "flutter"
-cask "font-hack-nerd-font"
-cask "github"
-cask "google-chrome"
-cask "insomnia"
-cask "postman"
-cask "iterm2"
-cask "sourcetree"
-cask "sublime-text"
-cask "visual-studio-code"
-cask "vlc"
+############################################
+# TAPS
+############################################
+
+tap "buo/cask-upgrade"                        # Gerencia atualizações de casks com 'brew cu'
+tap "romkatv/powerlevel10k"                  # Tema Powerlevel10k para Zsh
+
+############################################
+# BREWS (Pacotes de terminal)
+############################################
+
+brew "awscli"                                # CLI da AWS
+brew "gawk"                                  # GNU awk (útil em scripts)
+brew "gnupg"                                 # GPG para assinaturas e criptografia
+brew "mkcert"                                # Criação fácil de certificados SSL locais
+brew "nvm"                                   # Node Version Manager (útil para dev JS)
+brew "pnpm"                                  # Gerenciador de pacotes rápido para Node.js
+brew "pyenv"                                 # Gerencia versões do Python
+
+############################################
+# CASKS (Apps gráficos)
+############################################
+
+# cask "google-chrome"                       # Mantenha se for seu navegador principal
+# cask "firefox"                             # Mantenha se quiser um navegador alternativo
+# cask "android-studio"                      # Mantenha se desenvolver para Android
+# cask "cocoapods"                           # ⚠️ CLI, melhor instalar com `brew install cocoapods`
+# cask "flutter"                             # CLI, use `brew install flutter` se preferir manter tudo como `brew`
+# cask "docker"                              # ⚠️ Docker Desktop tem uso gratuito limitado p/ empresas
+cask "dbeaver-community"                     # Cliente de banco de dados
+cask "discord"                               # Chat/voz (muito usado em comunidades dev)
+cask "font-hack-nerd-font"                   # Fonte Nerd Font (necessita o tap `homebrew/cask-fonts`)
+cask "insomnia"                              # Teste de APIs
+cask "postman"                               # Teste de APIs
+cask "iterm2"                                # Terminal avançado
+cask "sublime-text"                          # Editor de texto rápido
+cask "visual-studio-code"                    # Editor principal (VSCode)
+cask "cursor"                                # Editor AI-based estilo VSCode
+cask "microsoft-teams"                       # Comunicação corporativa
+cask "vlc"                                   # Reprodutor de mídia
+cask "google-drive"
+cask "spotify"
+cask "openvpn-connect"
