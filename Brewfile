@@ -4,6 +4,7 @@
 
 tap "buo/cask-upgrade"                        # Gerencia atualizações de casks com 'brew cu'
 tap "romkatv/powerlevel10k"                  # Tema Powerlevel10k para Zsh
+tap "kong/deck"
 
 ############################################
 # BREWS (Pacotes de terminal)
@@ -16,6 +17,7 @@ brew "mkcert"                                # Criação fácil de certificados 
 brew "nvm"                                   # Node Version Manager (útil para dev JS)
 brew "pnpm"                                  # Gerenciador de pacotes rápido para Node.js
 brew "pyenv"                                 # Gerencia versões do Python
+brew "kong/deck/deck"
 
 ############################################
 # CASKS (Apps gráficos)
@@ -41,3 +43,5 @@ cask "vlc"                                   # Reprodutor de mídia
 cask "google-drive"
 cask "spotify"
 cask "openvpn-connect"
+cask "microsoft-remote-desktop"
+cask "appcleaner"
