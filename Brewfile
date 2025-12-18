@@ -27,6 +27,8 @@ brew "pandoc"
 brew "hashicorp/tap/terraform"
 brew "tfenv"
 
+cask "codex"
+
 ############################################
 # CASKS (Apps gráficos)
 ############################################
@@ -53,4 +55,6 @@ cask "spotify"
 cask "openvpn-connect"
 cask "microsoft-remote-desktop"
 cask "appcleaner"
-cask "redisinsight"
+cask "redis-insight"
+
+cask "anki"                                  # Flashcards para memorização
