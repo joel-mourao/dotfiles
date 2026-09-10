@@ -4,13 +4,13 @@ set -Eeuo pipefail
 # ========================================
 # Configurações padrão
 # ========================================
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 BREWFILE="${HOME}/.dotfiles/Brewfile"
 DO_KEYS=0
 DO_ALL=0
 DO_BREWFILE=0
 DO_UPDATE=0
 DO_CLEANUP=0
-KEEPALIVE=1
 
 # ========================================
 # Funções utilitárias
@@ -29,7 +29,6 @@ Opções:
   -f, --file PATH    Caminho do Brewfile (padrão: ~/.dotfiles/Brewfile)
       --cleanup      Ao usar --brewfile ou --all, remove itens fora do Brewfile (brew bundle cleanup --force)
       --keys         Aplica preferências de teclado (ApplePressAndHold) e copia KeyBindings
-      --no-keepalive Não mantém sudo ativo em background
   -h, --help         Mostra esta ajuda
 EOF
 }
@@ -41,15 +40,6 @@ err()  { printf "\033[1;31m[ERRO]\033[0m %s\n" "$*" >&2; }
 require_macos() {
   if [[ "${OSTYPE:-}" != darwin* ]]; then 
     warn "Etapas de macOS (defaults/KeyBindings) serão ignoradas."
-  fi
-}
-
-ensure_sudo() {
-  if command -v sudo >/dev/null 2>&1; then
-    sudo -v || true
-    if [[ "$KEEPALIVE" -eq 1 ]]; then
-      while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-    fi
   fi
 }
 
@@ -65,6 +55,18 @@ install_homebrew_if_needed() {
   else
     log "Homebrew encontrado."
   fi
+}
+
+apply_brew_trust() {
+  local trust_script="${SCRIPT_DIR}/brew-trust.sh"
+
+  if [[ ! -f "$trust_script" ]]; then
+    err "Script de confiança do Homebrew não encontrado: $trust_script"
+    exit 1
+  fi
+
+  log "Aplicando autorizações de taps externos..."
+  bash "$trust_script"
 }
 
 brew_update_all() {
@@ -118,7 +120,6 @@ while [[ $# -gt 0 ]]; do
     -f|--file) BREWFILE="$2"; shift 2 ;;
     --cleanup) DO_CLEANUP=1; shift ;;
     --keys) DO_KEYS=1; shift ;;
-    --no-keepalive) KEEPALIVE=0; shift ;;
     -h|--help) usage; exit 0 ;;
     *) err "Opção desconhecida: $1"; usage; exit 1 ;;
   esac
@@ -136,8 +137,8 @@ fi
 # Execução
 # ========================================
 require_macos
-ensure_sudo
 install_homebrew_if_needed
+apply_brew_trust
 
 if [[ "$DO_KEYS" -eq 1 ]]; then
   apply_key_prefs

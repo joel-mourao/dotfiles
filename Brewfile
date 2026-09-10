@@ -3,9 +3,8 @@
 ############################################
 
 tap "buo/cask-upgrade"                        # Gerencia atualizações de casks com 'brew cu'
-tap "romkatv/powerlevel10k"                  # Tema Powerlevel10k para Zsh
 tap "kong/deck"
-tap "hashicorp/tap"
+tap "stablyai/orca"
 
 ############################################
 # BREWS (Pacotes de terminal)
@@ -22,12 +21,10 @@ brew "kong/deck/deck"
 brew "postgresql@17"
 cask "ngrok"
 brew "pandoc"
+brew "gh"
+
 # brew "weasyprint"
-
-brew "hashicorp/tap/terraform"
 brew "tfenv"
-
-cask "codex"
 
 ############################################
 # CASKS (Apps gráficos)
@@ -39,22 +36,24 @@ cask "codex"
 # cask "cocoapods"                           # ⚠️ CLI, melhor instalar com `brew install cocoapods`
 # cask "flutter"                             # CLI, use `brew install flutter` se preferir manter tudo como `brew`
 # cask "docker"                              # ⚠️ Docker Desktop tem uso gratuito limitado p/ empresas
+# cask "insomnia"                              # Teste de APIs
+# cask "cursor"                                # Editor AI-based estilo VSCode
+# cask "spotify"
+# cask "microsoft-remote-desktop"
 cask "dbeaver-community"                     # Cliente de banco de dados
 cask "discord"                               # Chat/voz (muito usado em comunidades dev)
-cask "font-hack-nerd-font"                   # Fonte Nerd Font (necessita o tap `homebrew/cask-fonts`)
-cask "insomnia"                              # Teste de APIs
+cask "font-hack-nerd-font"                   # Fonte Nerd Font disponível no Homebrew Cask
 cask "postman"                               # Teste de APIs
 cask "iterm2"                                # Terminal avançado
 cask "sublime-text"                          # Editor de texto rápido
 cask "visual-studio-code"                    # Editor principal (VSCode)
-cask "cursor"                                # Editor AI-based estilo VSCode
 cask "microsoft-teams"                       # Comunicação corporativa
 cask "vlc"                                   # Reprodutor de mídia
 cask "google-drive"
-cask "spotify"
 cask "openvpn-connect"
-cask "microsoft-remote-desktop"
 cask "appcleaner"
 cask "redis-insight"
 
 cask "anki"                                  # Flashcards para memorização
+cask "codex"
+cask "stablyai/orca/orca"
