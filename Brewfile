@@ -11,35 +11,31 @@ tap "stablyai/orca"
 ############################################
 
 brew "awscli"                                # CLI da AWS
+brew "cocoapods"                             # Dependências nativas de iOS
 brew "gawk"                                  # GNU awk (útil em scripts)
 brew "gnupg"                                 # GPG para assinaturas e criptografia
 brew "mkcert"                                # Criação fácil de certificados SSL locais
 brew "nvm"                                   # Node Version Manager (útil para dev JS)
 brew "pnpm"                                  # Gerenciador de pacotes rápido para Node.js
 brew "pyenv"                                 # Gerencia versões do Python
+brew "scrcpy"                                # Espelha e controla dispositivos Android
 brew "kong/deck/deck"
 brew "postgresql@17"
 cask "ngrok"
+cask "session-manager-plugin"               # AWS Systems Manager Session Manager
 brew "pandoc"
 brew "gh"
-
-# brew "weasyprint"
 brew "tfenv"
+brew "watchman"                              # Monitora arquivos para React Native/Metro
 
 ############################################
 # CASKS (Apps gráficos)
 ############################################
 
-# cask "google-chrome"                       # Mantenha se for seu navegador principal
-# cask "firefox"                             # Mantenha se quiser um navegador alternativo
-# cask "android-studio"                      # Mantenha se desenvolver para Android
-# cask "cocoapods"                           # ⚠️ CLI, melhor instalar com `brew install cocoapods`
+cask "android-studio"                       # IDE e gerenciamento do SDK e emuladores Android
+cask "temurin@17"                           # JDK 17 para builds Android
 # cask "flutter"                             # CLI, use `brew install flutter` se preferir manter tudo como `brew`
-# cask "docker"                              # ⚠️ Docker Desktop tem uso gratuito limitado p/ empresas
-# cask "insomnia"                              # Teste de APIs
-# cask "cursor"                                # Editor AI-based estilo VSCode
-# cask "spotify"
-# cask "microsoft-remote-desktop"
+cask "android-platform-tools"                # Inclui o comando adb
 cask "dbeaver-community"                     # Cliente de banco de dados
 cask "discord"                               # Chat/voz (muito usado em comunidades dev)
 cask "font-hack-nerd-font"                   # Fonte Nerd Font disponível no Homebrew Cask
